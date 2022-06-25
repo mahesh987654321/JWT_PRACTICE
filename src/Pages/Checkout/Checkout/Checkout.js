@@ -1,11 +1,15 @@
-import React from 'react';
-
+import React from "react";
+import { useParams } from "react-router-dom";
+import useServiceDetails from "../../../hooks/useServiceDetails";
 const Checkout = () => {
-    return (
-        <div>
-            <h2>Please Checkout your booking</h2>
-        </div>
-    );
+  const { serviceId } = useParams();
+  const [service] = useServiceDetails(serviceId);
+
+  return (
+    <div>
+      <h2>Please Book {service.name}</h2>
+    </div>
+  );
 };
 
 export default Checkout;
